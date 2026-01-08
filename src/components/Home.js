@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <Box
       as="section"
-      mt={'6rem'}
+      mt={{ base: '6rem', md: '4rem' }}
       px={{ base: '1.5rem', md: '5rem' }}
       maxW="1557px"
       mx="auto"

@@ -59,11 +59,10 @@ const Cakes = () => {
   return (
     <Box
       as="section"
-      maxW="1500px"
+      maxW="1557px"
       mx="auto"
-      w="90%"
-      my="3rem"
-      px={{ base: '0.6rem', md: '2rem', lg: '3rem' }}
+      my="1.5rem"
+      px={{ base: '1.5rem', md: '5rem' }}
       animation="meals-appear 1s ease-out forwards"
       sx={{
         '@keyframes meals-appear': {
@@ -74,7 +73,7 @@ const Cakes = () => {
     >
       {/* Filter by Categories */}
       <Flex
-        mb="2rem"
+        mb={{ base: '1rem', md: '1.5rem' }}
         alignItems="center"
         flexWrap="wrap"
         gap={{ base: '0.5rem', md: '1rem' }}
