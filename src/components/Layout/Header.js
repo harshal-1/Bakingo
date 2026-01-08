@@ -1,20 +1,35 @@
-import { Fragment } from 'react';
+import { Box, Flex, Image, Heading } from '@chakra-ui/react';
 
 import HeaderCartButton from './HeaderCartButton';
-import mealsImage from '../../assets/meals.jpg';
-import classes from './Header.module.css';
+import logo from '../../assets/logo.png';
 
 const Header = (props) => {
   return (
-    <Fragment>
-      <header className={classes.header}>
-        <h1>Bakingo</h1>
-        <HeaderCartButton onClick={props.onShowCart} />
-      </header>
-      <div className={classes['main-image']}>
-        <img src={mealsImage} alt='A table full of delicious cakes!' />
-      </div>
-    </Fragment>
+    <Box
+      as="header"
+      position="fixed"
+      top="0"
+      left="0"
+      width="100%"
+      height="5rem"
+      bg="brand.black"
+      color="white"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      px={{ base: "1.4rem", md: "2rem" }}
+      py="1rem"
+      boxShadow="0 2px 8px rgba(0, 0, 0, 0.25)"
+      zIndex="10"
+    >
+      <Flex alignItems="center" gap="1rem">
+        <Image src={logo} alt="Bakingo Logo" height="2rem" width="auto" />
+        <Heading size="md" color="white" fontWeight="bold">
+          Bakingo
+        </Heading>
+      </Flex>
+      <HeaderCartButton onClick={props.onShowCart} />
+    </Box>
   );
 };
 

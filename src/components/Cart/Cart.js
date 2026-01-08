@@ -1,8 +1,21 @@
 import { Fragment, useContext, useState } from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  Button,
+  VStack,
+  Flex,
+  Text,
+  Box,
+  Divider,
+} from '@chakra-ui/react';
 
-import Modal from '../UI/Modal';
 import CartItem from './CartItem';
-import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
 import Checkout from './Checkout';
 
@@ -24,18 +37,19 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes['cart-items']}>
+    <Box>
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
           name={item.name}
           amount={item.amount}
           price={item.price}
+          image={item.image}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
         />
       ))}
-    </ul>
+    </Box>
   );
 
   const orderHandler = () => {
@@ -60,25 +74,40 @@ const Cart = (props) => {
   };
 
   const modalActions = (
-    <div className={classes.actions}>
-      <button className={classes['button--alt']} onClick={props.onClose}>
+    <Flex justify="space-between" width="100%" gap={4} mt={2}>
+      <Button
+        variant="outline"
+        onClick={props.onClose}
+        flex={1}
+        borderRadius="25px"
+        borderColor="gray.300"
+        color="gray.700"
+        _hover={{ bg: 'gray.50' }}
+      >
         Close
-      </button>
+      </Button>
       {hasItems && (
-        <button className={classes.button} onClick={orderHandler}>
+        <Button
+          colorScheme="red"
+          onClick={orderHandler}
+          flex={1}
+          borderRadius="25px"
+          fontWeight="bold"
+        >
           Order
-        </button>
+        </Button>
       )}
-    </div>
+    </Flex>
   );
 
   const cartModalContent = (
     <Fragment>
       {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>{totalAmount}</span>
-      </div>
+      <Divider borderColor="gray.300" mt={4} mb={3} />
+      <Flex justify="flex-end" align="center" fontWeight="bold" fontSize="xl" px={1} gap={2}>
+        <Text color="gray.700">Total:</Text>
+        <Text color="brand.red" fontSize="xl">{totalAmount}</Text>
+      </Flex>
       {isCheckout && (
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
       )}
@@ -86,22 +115,33 @@ const Cart = (props) => {
     </Fragment>
   );
 
-  const isSubmittingModalContent = <p>Sending order data....</p>;
-  
-  const didSubmitModalContent = (<Fragment><p>Successfully sent the order!</p>
-  <div className={classes.actions}>
-      <button className={classes.button} onClick={props.onClose}>
+  const isSubmittingModalContent = (
+    <Text textAlign="center" py={4} color="gray.700" fontSize="lg">Sending order data....</Text>
+  );
+
+  const didSubmitModalContent = (
+    <VStack spacing={3} align="center">
+      <Text textAlign="center" py={1} color="brand.red" fontSize="lg" fontWeight="semibold">Successfully sent the order!</Text>
+      <Button colorScheme="red" width="30%" onClick={props.onClose} borderRadius="25px" fontWeight="bold">
         Close
-      </button>
-      </div>
-  </Fragment>);
+      </Button>
+    </VStack>
+  );
 
-
-  return <Modal onClose={props.onClose}>
-    {!isSubmitting && !didSubmit && cartModalContent}
-    {isSubmitting && isSubmittingModalContent}
-    {!isSubmitting && didSubmit && didSubmitModalContent}
-  </Modal>;
+  return (
+    <Modal isOpen={true} onClose={props.onClose} size="xl">
+      <ModalOverlay bg="blackAlpha.700" />
+      <ModalContent bg="white" color="gray.800" maxW={{ base: "90%", md: "xl" }}>
+        <ModalHeader fontWeight="bold" fontSize="2xl" pb={2}>Your Cart</ModalHeader>
+        <ModalCloseButton color="gray.600" />
+        <ModalBody pb={4}>
+          {!isSubmitting && !didSubmit && cartModalContent}
+          {isSubmitting && isSubmittingModalContent}
+          {!isSubmitting && didSubmit && didSubmitModalContent}
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
 };
 
 export default Cart;
