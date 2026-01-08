@@ -17,7 +17,7 @@ const Header = (props) => {
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      px="2rem"
+      px={{ base: "1.4rem", md: "2rem" }}
       py="1rem"
       boxShadow="0 2px 8px rgba(0, 0, 0, 0.25)"
       zIndex="10"

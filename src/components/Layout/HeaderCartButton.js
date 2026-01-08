@@ -56,14 +56,13 @@ const HeaderCartButton = (props) => {
       </Box>
       <Box>Your Cart</Box>
       <Badge
-        bg="#f10a0a"
+        bg="brand.red"
         color="white"
         px="1rem"
         py="0.25rem"
         borderRadius="25px"
-        ml="1rem"
+        ml={{ base: "0.2rem", md: "0.5rem" }}
         fontWeight="bold"
-        _hover={{ bg: '#d82828' }}
       >
         {numberOfCartItems}
       </Badge>
