@@ -93,7 +93,7 @@ const Cart = (props) => {
           borderRadius="25px"
           fontWeight="bold"
         >
-          Order
+          Place Order
         </Button>
       )}
     </Flex>
@@ -115,12 +115,12 @@ const Cart = (props) => {
   );
 
   const isSubmittingModalContent = (
-    <Text textAlign="center" py={4} color="gray.700" fontSize="lg">Sending order data....</Text>
+    <Text textAlign="center" py={4} color="gray.700" fontSize="lg">Processing Your Order....</Text>
   );
 
   const didSubmitModalContent = (
     <VStack spacing={3} align="center">
-      <Text textAlign="center" py={1} color="brand.red" fontSize="lg" fontWeight="semibold">Successfully sent the order!</Text>
+      <Text textAlign="center" py={1} color="brand.red" fontSize="lg" fontWeight="semibold">Successfully received your order!</Text>
       <Button colorScheme="red" width="30%" onClick={props.onClose} borderRadius="25px" fontWeight="bold">
         Close
       </Button>
