@@ -1,5 +1,14 @@
 import { useRef, useState } from 'react';
-import classes from './Checkout.module.css';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  VStack,
+  HStack,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 
 const isEmpty = (value) => value.trim() === '';
 const isSixChars = (value) => value.trim().length === 6;
@@ -41,60 +50,80 @@ const Checkout = (props) => {
       return;
     }
     props.onConfirm({
-        name: enteredName,
-        street: enteredStreet,
-        city: enteredCity,
-        postalCode: enteredPostalCode
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode
     });
   };
 
-  const nameControlClasses = `${classes.control} ${
-    formInputsValidity.name ? '' : classes.invalid
-  }`;
-
-  const streetControlClasses = `${classes.control} ${
-    formInputsValidity.street ? '' : classes.invalid
-  }`;
-
-  const postalCodeControlClasses = `${classes.control} ${
-    formInputsValidity.postalCode ? '' : classes.invalid
-  }`;
-
-  const cityControlClasses = `${classes.control} ${
-    formInputsValidity.city ? '' : classes.invalid
-  }`;
-
   return (
-    <form className={classes.form} onSubmit={confirmHandler}>
-      <div className={nameControlClasses}>
-        <label htmlFor="name">Your Name</label>
-        <input type="text" id="name" ref={nameInputRef} />
-        {!formInputsValidity.name && <p>Pls enter a valid name!</p>}
-      </div>
-      <div className={streetControlClasses}>
-        <label htmlFor="street">Street</label>
-        <input type="text" id="street" ref={streetInputRef} />
-        {!formInputsValidity.street && <p>Pls enter a valid street!</p>}
-      </div>
-      <div className={postalCodeControlClasses}>
-        <label htmlFor="postal">Postal Code</label>
-        <input type="text" id="postal" ref={postalCodeInputRef} />
-        {!formInputsValidity.postalCode && (
-          <p>Pls enter a valid postal Code! (6 characters long)</p>
-        )}
-      </div>
-      <div className={cityControlClasses}>
-        <label htmlFor="city">City</label>
-        <input type="text" id="city" ref={cityInputRef} />
-        {!formInputsValidity.city && <p>Pls enter a valid city!</p>}
-      </div>
-      <div className={classes.actions}>
-        <button type="button" onClick={props.onCancel}>
-          Cancel
-        </button>
-        <button className={classes.submit}>Confirm</button>
-      </div>
-    </form>
+    <Box as="form" onSubmit={confirmHandler} mt={4}>
+      <VStack spacing={4} align="stretch">
+        <FormControl isInvalid={!formInputsValidity.name}>
+          <FormLabel htmlFor="name">Your Name</FormLabel>
+          <Input
+            type="text"
+            id="name"
+            ref={nameInputRef}
+            bg="gray.700"
+            borderColor="gray.600"
+            _hover={{ borderColor: 'gray.500' }}
+          />
+          <FormErrorMessage>Pls enter a valid name!</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!formInputsValidity.street}>
+          <FormLabel htmlFor="street">Street</FormLabel>
+          <Input
+            type="text"
+            id="street"
+            ref={streetInputRef}
+            bg="gray.700"
+            borderColor="gray.600"
+            _hover={{ borderColor: 'gray.500' }}
+          />
+          <FormErrorMessage>Pls enter a valid street!</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!formInputsValidity.postalCode}>
+          <FormLabel htmlFor="postal">Postal Code</FormLabel>
+          <Input
+            type="text"
+            id="postal"
+            ref={postalCodeInputRef}
+            bg="gray.700"
+            borderColor="gray.600"
+            _hover={{ borderColor: 'gray.500' }}
+          />
+          <FormErrorMessage>
+            Pls enter a valid postal Code! (6 characters long)
+          </FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!formInputsValidity.city}>
+          <FormLabel htmlFor="city">City</FormLabel>
+          <Input
+            type="text"
+            id="city"
+            ref={cityInputRef}
+            bg="gray.700"
+            borderColor="gray.600"
+            _hover={{ borderColor: 'gray.500' }}
+          />
+          <FormErrorMessage>Pls enter a valid city!</FormErrorMessage>
+        </FormControl>
+
+        <HStack spacing={4} justify="flex-end" pt={2}>
+          <Button variant="outline" onClick={props.onCancel}>
+            Cancel
+          </Button>
+          <Button type="submit" colorScheme="red">
+            Confirm
+          </Button>
+        </HStack>
+      </VStack>
+    </Box>
   );
 };
 

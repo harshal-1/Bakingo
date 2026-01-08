@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
+import { Button, Box, Badge } from '@chakra-ui/react';
 
 import CartIcon from '../Cart/CartIcon';
 import CartContext from '../../store/cart-context';
-import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = (props) => {
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
@@ -13,8 +13,6 @@ const HeaderCartButton = (props) => {
   const numberOfCartItems = items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
-
-  const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
   useEffect(() => {
     if (items.length === 0) {
@@ -31,14 +29,45 @@ const HeaderCartButton = (props) => {
     };
   }, [items]);
 
+  const bumpAnimation = btnIsHighlighted
+    ? {
+      animation: 'bump 300ms ease-out',
+      '@keyframes bump': {
+        '0%': { transform: 'scale(1)' },
+        '10%': { transform: 'scale(0.9)' },
+        '30%': { transform: 'scale(1.1)' },
+        '50%': { transform: 'scale(1.15)' },
+        '100%': { transform: 'scale(1)' },
+      },
+    }
+    : {};
+
   return (
-    <button className={btnClasses} onClick={props.onClick}>
-      <span className={classes.icon}>
+    <Button
+      onClick={props.onClick}
+      variant="cart"
+      display="flex"
+      alignItems="center"
+      gap="0.5rem"
+      sx={bumpAnimation}
+    >
+      <Box width="1.35rem" height="1.35rem">
         <CartIcon />
-      </span>
-      <span>Your Cart</span>
-      <span className={classes.badge}>{numberOfCartItems}</span>
-    </button>
+      </Box>
+      <Box>Your Cart</Box>
+      <Badge
+        bg="#f10a0a"
+        color="white"
+        px="1rem"
+        py="0.25rem"
+        borderRadius="25px"
+        ml="1rem"
+        fontWeight="bold"
+        _hover={{ bg: '#d82828' }}
+      >
+        {numberOfCartItems}
+      </Badge>
+    </Button>
   );
 };
 

@@ -1,8 +1,20 @@
 import { Fragment, useContext, useState } from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  Button,
+  VStack,
+  Flex,
+  Text,
+  Box,
+} from '@chakra-ui/react';
 
-import Modal from '../UI/Modal';
 import CartItem from './CartItem';
-import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
 import Checkout from './Checkout';
 
@@ -24,7 +36,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes['cart-items']}>
+    <VStack spacing={0} align="stretch">
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -35,7 +47,7 @@ const Cart = (props) => {
           onAdd={cartItemAddHandler.bind(null, item)}
         />
       ))}
-    </ul>
+    </VStack>
   );
 
   const orderHandler = () => {
@@ -60,25 +72,25 @@ const Cart = (props) => {
   };
 
   const modalActions = (
-    <div className={classes.actions}>
-      <button className={classes['button--alt']} onClick={props.onClose}>
+    <Flex justify="space-between" width="100%" gap={4}>
+      <Button variant="outline" onClick={props.onClose} flex={1}>
         Close
-      </button>
+      </Button>
       {hasItems && (
-        <button className={classes.button} onClick={orderHandler}>
+        <Button colorScheme="red" onClick={orderHandler} flex={1}>
           Order
-        </button>
+        </Button>
       )}
-    </div>
+    </Flex>
   );
 
   const cartModalContent = (
     <Fragment>
       {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>{totalAmount}</span>
-      </div>
+      <Flex justify="space-between" align="center" fontWeight="bold" fontSize="xl" mt={4} py={4}>
+        <Text>Total Amount</Text>
+        <Text color="brand.red">{totalAmount}</Text>
+      </Flex>
       {isCheckout && (
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
       )}
@@ -86,22 +98,33 @@ const Cart = (props) => {
     </Fragment>
   );
 
-  const isSubmittingModalContent = <p>Sending order data....</p>;
-  
-  const didSubmitModalContent = (<Fragment><p>Successfully sent the order!</p>
-  <div className={classes.actions}>
-      <button className={classes.button} onClick={props.onClose}>
+  const isSubmittingModalContent = (
+    <Text textAlign="center" py={4}>Sending order data....</Text>
+  );
+
+  const didSubmitModalContent = (
+    <Fragment>
+      <Text textAlign="center" py={4}>Successfully sent the order!</Text>
+      <Button colorScheme="red" width="100%" onClick={props.onClose}>
         Close
-      </button>
-      </div>
-  </Fragment>);
+      </Button>
+    </Fragment>
+  );
 
-
-  return <Modal onClose={props.onClose}>
-    {!isSubmitting && !didSubmit && cartModalContent}
-    {isSubmitting && isSubmittingModalContent}
-    {!isSubmitting && didSubmit && didSubmitModalContent}
-  </Modal>;
+  return (
+    <Modal isOpen={true} onClose={props.onClose} size="xl">
+      <ModalOverlay bg="blackAlpha.700" />
+      <ModalContent bg="brand.darkGray" color="white">
+        <ModalHeader>Your Cart</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          {!isSubmitting && !didSubmit && cartModalContent}
+          {isSubmitting && isSubmittingModalContent}
+          {!isSubmitting && didSubmit && didSubmitModalContent}
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
 };
 
 export default Cart;

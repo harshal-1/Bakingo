@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import Header from './components/Layout/Header';
-import Meals from './components/Meals/Meals';
+import Home from './components/Home';
+import Cakes from './components/Cakes';
 import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
+import theme from './theme';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -17,13 +20,16 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <ChakraProvider theme={theme}>
+      <CartProvider>
+        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        <Header onShowCart={showCartHandler} />
+        <>
+            <Home />
+            <Cakes />
+        </>
+      </CartProvider>
+    </ChakraProvider>
   );
 }
 
