@@ -21,7 +21,8 @@ const CakeCard = (props) => {
       id: props.id,
       name: props.name,
       amount: 1,
-      price: props.price
+      price: props.price,
+      image: props.image
     });
   };
 
@@ -30,7 +31,8 @@ const CakeCard = (props) => {
       id: props.id,
       name: props.name,
       amount: 1,
-      price: props.price
+      price: props.price,
+      image: props.image
     });
   };
 
@@ -67,7 +69,7 @@ const CakeCard = (props) => {
       }}
     >
       {props.image && (
-        <Box p={{base: "0.5rem", md: "1rem"}} pb="0">
+        <Box p={{ base: "0.5rem", md: "1rem" }} pb="0">
           <Box
             width="100%"
             paddingBottom="56.25%"
@@ -90,13 +92,13 @@ const CakeCard = (props) => {
           </Box>
         </Box>
       )}
-      <Box p={{base: "1rem", md: "1.5rem"}} pt={{ md: "0"}} display="flex" flexDirection="column" flex="1">
+      <Box p={{ base: "1rem", md: "1.5rem" }} pt={{ md: "0" }} display="flex" flexDirection="column" flex="1">
         <Flex justify="space-between" align="flex-start" gap="1rem" mb="1rem">
           <Box flex="1">
             <Badge
               color={getCategoryColor(props.category)}
               bg="transparent"
-              fontSize={{base: "xs", md: "xs"}}
+              fontSize={{ base: "xs", md: "xs" }}
               fontWeight="bold"
               textTransform="uppercase"
               px="0"
@@ -105,17 +107,17 @@ const CakeCard = (props) => {
             >
               {props.category}
             </Badge>
-            <Heading as="h3" size={{base: "sm", md: "md"}} color="gray.800" mt="0.1rem" lineHeight="1.3">
+            <Heading as="h3" size={{ base: "sm", md: "md" }} color="gray.800" mt="0.1rem" lineHeight="1.3">
               {props.name}
             </Heading>
           </Box>
-          <Text fontSize={{base: "md", md: "lg"}} fontWeight="bold" color="brand.red" whiteSpace="nowrap">
+          <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="brand.red" whiteSpace="nowrap">
             {price}
           </Text>
         </Flex>
 
         <Flex mt="auto" gap="1rem" align="flex-end">
-          <Text flex="1" fontSize={{base: "sm", md: "sm"}} color="gray.600" lineHeight="1.5">
+          <Text flex="1" fontSize={{ base: "sm", md: "sm" }} color="gray.600" lineHeight="1.5">
             {props.description}
           </Text>
 

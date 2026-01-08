@@ -12,6 +12,7 @@ import {
   Flex,
   Text,
   Box,
+  Divider,
 } from '@chakra-ui/react';
 
 import CartItem from './CartItem';
@@ -36,18 +37,19 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <VStack spacing={0} align="stretch">
+    <Box>
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
           name={item.name}
           amount={item.amount}
           price={item.price}
+          image={item.image}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
         />
       ))}
-    </VStack>
+    </Box>
   );
 
   const orderHandler = () => {
@@ -72,12 +74,26 @@ const Cart = (props) => {
   };
 
   const modalActions = (
-    <Flex justify="space-between" width="100%" gap={4}>
-      <Button variant="outline" onClick={props.onClose} flex={1}>
+    <Flex justify="space-between" width="100%" gap={4} mt={2}>
+      <Button
+        variant="outline"
+        onClick={props.onClose}
+        flex={1}
+        borderRadius="25px"
+        borderColor="gray.300"
+        color="gray.700"
+        _hover={{ bg: 'gray.50' }}
+      >
         Close
       </Button>
       {hasItems && (
-        <Button colorScheme="red" onClick={orderHandler} flex={1}>
+        <Button
+          colorScheme="red"
+          onClick={orderHandler}
+          flex={1}
+          borderRadius="25px"
+          fontWeight="bold"
+        >
           Order
         </Button>
       )}
@@ -87,9 +103,10 @@ const Cart = (props) => {
   const cartModalContent = (
     <Fragment>
       {cartItems}
-      <Flex justify="space-between" align="center" fontWeight="bold" fontSize="xl" mt={4} py={4}>
-        <Text>Total Amount</Text>
-        <Text color="brand.red">{totalAmount}</Text>
+      <Divider borderColor="gray.300" mt={4} mb={3} />
+      <Flex justify="flex-end" align="center" fontWeight="bold" fontSize="xl" px={1} gap={2}>
+        <Text color="gray.700">Total:</Text>
+        <Text color="brand.red" fontSize="xl">{totalAmount}</Text>
       </Flex>
       {isCheckout && (
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
@@ -99,25 +116,25 @@ const Cart = (props) => {
   );
 
   const isSubmittingModalContent = (
-    <Text textAlign="center" py={4}>Sending order data....</Text>
+    <Text textAlign="center" py={4} color="gray.700" fontSize="lg">Sending order data....</Text>
   );
 
   const didSubmitModalContent = (
-    <Fragment>
-      <Text textAlign="center" py={4}>Successfully sent the order!</Text>
-      <Button colorScheme="red" width="100%" onClick={props.onClose}>
+    <VStack spacing={3} align="center">
+      <Text textAlign="center" py={1} color="brand.red" fontSize="lg" fontWeight="semibold">Successfully sent the order!</Text>
+      <Button colorScheme="red" width="30%" onClick={props.onClose} borderRadius="25px" fontWeight="bold">
         Close
       </Button>
-    </Fragment>
+    </VStack>
   );
 
   return (
     <Modal isOpen={true} onClose={props.onClose} size="xl">
       <ModalOverlay bg="blackAlpha.700" />
-      <ModalContent bg="brand.darkGray" color="white">
-        <ModalHeader>Your Cart</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
+      <ModalContent bg="white" color="gray.800" maxW={{ base: "90%", md: "xl" }}>
+        <ModalHeader fontWeight="bold" fontSize="2xl" pb={2}>Your Cart</ModalHeader>
+        <ModalCloseButton color="gray.600" />
+        <ModalBody pb={4}>
           {!isSubmitting && !didSubmit && cartModalContent}
           {isSubmitting && isSubmittingModalContent}
           {!isSubmitting && didSubmit && didSubmitModalContent}
