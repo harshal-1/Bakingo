@@ -90,6 +90,7 @@ const Cakes = () => {
         {categories.map((category) => (
           <Button
             key={category}
+            sx={{ WebkitTapHighlightColor: 'transparent' }}
             onClick={() => setSelectedCategory(category)}
             size={{ base: 'xs', md: 'sm' }}
             px={{ base: '1rem', md: '1.5rem' }}

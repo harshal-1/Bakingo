@@ -5,119 +5,119 @@
       "description": "Classic chocolate sponge with cherries and whipped cream.",
       "price": 13.49,
       "category": "Classic",
-      "image_url": "https://i.postimg.cc/7CKYLPGY/Black-Forest.png"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932663/Black_Forest_udqltf.png"
     },
     "m2": {
       "name": "Blueberry Cheesecake",
       "description": "Creamy cheesecake topped with fresh blueberry compote.",
       "price": 17.99,
       "category": "Fruity",
-      "image_url": "https://i.postimg.cc/p9sXdVhT/Blueberry-Cheesecake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767933837/Blueberry_Cheesecake_eoy51q.jpg"
     },
     "m3": {
       "name": "Caramel Walnut Cake",
       "description": "Moist cake filled with caramel cream and crunchy walnuts.",
       "price": 21.49,
       "category": "Exotic",
-      "image_url": "https://i.postimg.cc/WD5b4pFz/Caramel-Walnut.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932664/Caramel_Walnut_pozth3.jpg"
     },
     "m4": {
       "name": "Belgian Chocolate Mousse Cake",
       "description": "Airy Belgian chocolate mousse layered over soft sponge.",
       "price": 22.99,
       "category": "Exotic",
-      "image_url": "https://i.postimg.cc/kVTX5M65/Belgian-Mouse.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932664/Belgian_Mouse_wtkkiv.jpg"
     }, 
     "m5": {
       "name": "Butterscotch Caramel Cake",
       "description": "Crunchy and smooth caramel-infused butterscotch layers.",
       "price": 12.49,
       "category": "Classic",
-      "image_url": "https://i.postimg.cc/zb3DHmKr/Butterscotch-Caramel.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932664/Butterscotch_Caramel_j2hzq2.jpg"
     },
     "m6": {
       "name": "Strawberry Cream Cake",
       "description": "Fresh strawberry compote layered with whipped cream.",
       "price": 15.99,
       "category": "Fruity",
-      "image_url": "https://i.postimg.cc/qhYJ8mxL/Strawberry-Cream.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932667/Strawberry_Cream_bukwua.jpg"
     },
     "m7": {
       "name": "Coffee Mocha Cake",
       "description": "Coffee-infused cake layered with mocha cream frosting.",
       "price": 15.49,
       "category": "Classic",
-      "image_url": "https://i.postimg.cc/Fd1Fkt3s/Coffee-Mocha.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932665/Coffee_Mocha_txtfht.jpg"
     },
     "m8": {
       "name": "Ferrero Rocher Cake",
       "description": "Nutty chocolate cake inspired by the iconic Ferrero Rocher.",
       "price": 19.99,
       "category": "Chocolate",
-      "image_url": "https://i.postimg.cc/MMXZfkVX/Ferrero-Rocher.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932665/Ferrero_Rocher_rcs8ia.jpg"
     },
     "m9": {
       "name": "Mixed Fruit Cake",
       "description": "Vanilla sponge loaded with fresh seasonal fruits.",
       "price": 16.49,
       "category": "Fruity",
-      "image_url": "https://i.postimg.cc/WFtpqRg4/Fruit-Cake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932665/Fruit_Cake_pgsmr0.jpg"
     },
     "m10": {
       "name": "KitKat Cake",
       "description": "Chocolate cake wrapped with KitKat bars and rich frosting.",
       "price": 17.49,
       "category": "Chocolate",
-      "image_url": "https://i.postimg.cc/Fd1Fkt3Y/Kitkat-Cake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767933839/Kitkat_Cake_yz6pgu.jpg"
     },
     "m11": {
       "name": "Mango Mousse Cake",
       "description": "Smooth mango mousse layered with soft vanilla sponge.",
       "price": 16.99,
       "category": "Fruity",
-      "image_url": "https://i.postimg.cc/xJqjNrMH/Mango-Mouse.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932666/Mango_Mouse_gw8emn.jpg"
     },
     "m12": {
       "name": "Nutella Hazelnut Cake",
       "description": "Nutella-filled layers with roasted hazelnuts and chocolate glaze.",
       "price": 19.49,
       "category": "Chocolate",
-      "image_url": "https://i.postimg.cc/wy3xRKLX/Nutella-Cake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932666/Nutella_Cake_fsfdrg.jpg"
     },
     "m13": {
       "name": "Oreo Crunch Cake",
       "description": "Chocolate sponge layered with Oreo cream and crunchy bits.",
       "price": 15.49,
       "category": "Chocolate",
-      "image_url": "https://i.postimg.cc/hzh4QFTb/Oreo-Crunch.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932666/Oreo_Crunch_vb0dt6.jpg"
     },
     "m14": {
       "name": "Pineapple Cream Cake",
       "description": "Soft vanilla cake layered with pineapple chunks and cream.",
       "price": 13.49,
       "category": "Fruity",
-      "image_url": "https://i.postimg.cc/R68ScPLt/Pineapple-Cream.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932667/Pineapple_Cream_j2mndz.jpg"
     },
     "m15": {
       "name": "Rainbow Layer Cake",
       "description": "Vibrant colorful layers with a fluffy vanilla base.",
       "price": 18.49,
       "category": "Exotic",
-      "image_url": "https://i.postimg.cc/TLSdrkJJ/Rainbow-Cake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932667/Rainbow_Cake_lke9nq.jpg"
     },
     "m16": {
       "name": "Rasmalai Fusion Cake",
       "description": "Indian-fusion cake soaked with rasmalai milk and saffron.",
       "price": 20.99,
       "category": "Exotic",
-      "image_url": "https://i.postimg.cc/47Mfz8Qz/Rasmalai-Cake.png"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932668/Rasmalai_Cake_b6trxu.png"
     },
     "m17": {
       "name": "Red Velvet Cake",
       "description": "Rich, velvety layers with smooth cream cheese frosting.",
       "price": 14.99,
       "category": "Classic",
-      "image_url": "https://i.postimg.cc/9RSmGxYt/Red-Velvet.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932667/Red_Velvet_hcoodu.jpg"
     },
     
     "m18": {
@@ -125,21 +125,21 @@
       "description": "Decadent dark chocolate cake filled with silky truffle ganache.",
       "price": 18.99,
       "category": "Chocolate",
-      "image_url": "https://i.postimg.cc/9RzXw3Zm/Chocolate-Truffle.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932664/Chocolate_Truffle_x6okgp.jpg"
     },
     "m19": {
       "name": "Tiramisu Cake",
       "description": "Coffee-soaked sponge layered with mascarpone cream.",
       "price": 21.99,
       "category": "Exotic",
-      "image_url": "https://i.postimg.cc/S25SWZfV/Tiramisu-Cake.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932668/Tiramisu_Cake_arat8r.jpg"
     },
     "m20": {
       "name": "Vanilla Bean Cake",
       "description": "Light and fluffy cake made with real vanilla bean.",
       "price": 11.99,
       "category": "Classic",
-      "image_url": "https://i.postimg.cc/xJ7fKs3h/Vanilla-Bean.jpg"
+      "image_url": "https://res.cloudinary.com/dv4dvemp7/image/upload/v1767932669/Vanilla_Bean_w4irrt.jpg"
     }
   }
 }
